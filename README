@@ -1,0 +1,9 @@
+This is a simple Java EE 6 application to perform the same as:
+
+     <Location />
+     RedirectMatch 301 ^/(.*) http://www.example.com/$1
+     </Location>
+     
+Currently the www.example.com is hard wired. Let's fix that.
+
+nic - 2012.11.04
