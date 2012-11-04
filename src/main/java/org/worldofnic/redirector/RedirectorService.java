@@ -1,8 +1,9 @@
 package org.worldofnic.redirector;
 
 /**
- * A simple CDI service which is able to say hello to someone
+ * A simple CDI service which is able to generate a redirection
  * 
+ * @author Nic Doye
  * @author Pete Muir
  * 
  */

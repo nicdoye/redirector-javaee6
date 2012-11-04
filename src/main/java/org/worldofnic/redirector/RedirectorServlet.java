@@ -1,7 +1,7 @@
 package org.worldofnic.redirector;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -16,10 +16,11 @@ import javax.servlet.http.HttpServletResponse;
  * </p>
  * 
  * <p>
- * The servlet is registered and mapped to /HelloServlet using the {@linkplain WebServlet
+ * The servlet is registered and mapped to / using the {@linkplain WebServlet
  * @HttpServlet}. The {@link RedirectorService} is injected by CDI.
  * </p>
  * 
+ * @author Nic Doye
  * @author Pete Muir
  * 
  */
