@@ -1,5 +1,8 @@
 package org.worldofnic.redirector;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * A simple CDI service which is able to generate a redirection
  * 
@@ -9,11 +12,31 @@ package org.worldofnic.redirector;
  */
 public class RedirectorService {
 
-   String redirectorURL(String servletPath) {
-      return "http://www.worldofnic.org" + servletPath ;
-   }
+	static String DEFAULT_HOSTNAME = "example.com";
+	static String DEFAULT_PROTOCOL = "http://";
 
-   String redirectorURL(String servletPath, String queryString) {
-	   return redirectorURL( servletPath + ( ( queryString == null ) ? "" : "?" + queryString ) );
-   }
+	String hostnameinator(String urlString) {
+		String hostname;
+		try {
+			URL url = new URL(urlString);
+			hostname = url.getHost();
+		} catch (MalformedURLException e) {
+			hostname = DEFAULT_HOSTNAME;
+		}
+		return hostname;
+	}
+
+	String redirectorURL(String urlString, String servletPath) {
+		return DEFAULT_PROTOCOL + wwwinator(urlString) + servletPath;
+	}
+
+	String wwwinator(String urlString) {
+		return "www." + hostnameinator(urlString);
+	}
+
+	String redirectorURL(String urlString, String servletPath,
+			String queryString) {
+		return redirectorURL(urlString, servletPath
+				+ ((queryString == null) ? "" : "?" + queryString));
+	}
 }

@@ -33,7 +33,7 @@ public class RedirectorServlet extends HttpServlet {
 
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	   resp.sendRedirect( redirectorService.redirectorURL( req.getServletPath(), req.getQueryString()));
+	   resp.sendRedirect( redirectorService.redirectorURL( req.getRequestURL().toString(), req.getServletPath(), req.getQueryString()));
    }
 
 }
